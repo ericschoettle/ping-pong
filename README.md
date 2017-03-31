@@ -1,8 +1,3 @@
-<!-- template tricks:
--to change pairs to .pairs, "mv pairs .pairs"
--to delete the .git, "rm -rf .git"  -->
-
-
 # _Ping-Pong_
 
 #### _This is a simple application that returns the words "ping", "pong", and "ping-pong" based on a user's numerical input {3/31/17}_
@@ -31,7 +26,10 @@ _This website is a game using the words ping-pong. If the user inputs a multiple
 * _Application tests if input is a multiple of fifteen_
   * _If input is a multiple of three, application returns "ping pong" to user_
     * _eg 15 => "ping-pong"_
-
+* _Form has a drop down button allowing addition or removal_
+  * _On "add", behavior is as above_
+  * _On "remove", all instances of the word, number, or corresponding word are removed_
+    * _eg 
 
 ## Setup/Installation Requirements
 
