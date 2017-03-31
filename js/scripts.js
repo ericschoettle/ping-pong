@@ -11,5 +11,6 @@ $(document).ready(function() {
     var input = $("input#number").val();
 
     $("#response").show()
+    $("#response").append(input + "<br>");
   });
 });
