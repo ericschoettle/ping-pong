@@ -16,8 +16,9 @@ function pingPong(number) {
 
 // Front end
 $(document).ready(function() {
-  $("#add").click(function(event) {
+  $("#add-button1, add-button2").click(function(event) {
     event.preventDefault();
+    debugger
     var input = $("input#number").val();
     var output = pingPong(input)
     $("#response").show()
@@ -25,10 +26,11 @@ $(document).ready(function() {
       $("#response").append("<p>" + output + "</p>");
     }
   });
-  $("#remove").click(function(event) {
+  $("#remove-button1, remove-button2").click(function(event) {
     event.preventDefault();
-    $("#add").hide()
-    $("#remove").show()
+    debugger
+    $("#add-div").hide()
+    $("#remove-div").show()
     if (output) {
       $("#response").append("<p>" + output + "</p>");
     }
