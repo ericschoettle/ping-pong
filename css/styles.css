@@ -5,3 +5,7 @@ h1 {
 button {
   margin-top: 25px;
 }
+
+#response {
+  display: none;
+}

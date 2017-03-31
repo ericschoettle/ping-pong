@@ -14,6 +14,7 @@ _This website is a game using the words ping-pong. If the user inputs a multiple
 * _Application takes a numerical input_
   * _Application returns input to user_
     * _eg 2 => 2_
+  * _Application will show jumbotron with returned input when button is submitted_
 * _Application tests if input is an integer_
   * _If not an integer, application alerts user_
     * _eg the => "please enter an integer"_
