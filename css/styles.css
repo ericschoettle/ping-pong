@@ -2,14 +2,10 @@ h1 {
   text-align: center;
 }
 
-button {
-  margin-top: 25px;
-}
-
 #response {
   display: none;
 }
 
 .jumbotron > *:not(h1) {
-  padding-left: 30px
+  padding: 0 25px 0 25px
 }
