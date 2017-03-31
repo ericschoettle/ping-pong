@@ -18,7 +18,6 @@ function pingPong(number) {
 $(document).ready(function() {
   $("#add").click(function(event) {
     event.preventDefault();
-    debugger
     var input = $("input#number").val();
     var output = pingPong(input)
     $("#response").show()
@@ -28,10 +27,8 @@ $(document).ready(function() {
   });
   $("#remove").click(function(event) {
     event.preventDefault();
-    debugger
-    var input = $("input#number").val();
-    var output = pingPong(input)
-    $("#response").show()
+    $("#add").hide()
+    $("#remove").show()
     if (output) {
       $("#response").append("<p>" + output + "</p>");
     }

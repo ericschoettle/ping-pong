@@ -13,20 +13,26 @@
       <div class="jumbotron">
         <h1>Ping Pong</h1>
       </div>
-      <div class="jumbotron">
+      <div class="jumbotron" id="add-div">
         <form id="form1" action="index.html" method="post">
           <div class="input-group">
             <div class="input-group-btn">
-              <button type="submit" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expande="false">Play <span class="caret"></span> </button>
-              <ul class="dropdown-menu dropdown-menu-left">
-                <li><a href="#" id="add">Add</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#" id="remove">Remove</a></li>
-              </ul>
+              <button id="add-button1" type="submit" class="btn btn-primary">Add</button>
+              <button id="remove-button1" type="submit" class="btn btn-default">Remove</button>
             </div>
-            <input type="text" class="form-control " id="number" placeholder="Enter a number...">
+            <input type="text" class="form-control " aria-label="..." id="number" placeholder="Enter a number...">
           </div>
-
+        </form>
+      </div>
+      <div class="jumbotron" id="remove-div">
+        <form id="form1" action="index.html" method="post">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button id="add-button2" type="submit" class="btn btn-default">Add</button>
+              <button id="remove-button2" type="submit" class="btn btn-primary">Remove</button>
+            </div>
+            <input type="text" class="form-control " aria-label="..." id="number" placeholder="Enter a piece of text seen below...">
+          </div>
         </form>
       </div>
       <div class="jumbotron" id="response">

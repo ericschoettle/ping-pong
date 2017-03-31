@@ -6,6 +6,10 @@ h1 {
   display: none;
 }
 
+#remove-div {
+  display: none;
+}
+
 .jumbotron > * {
   padding: 0 25px 0 25px
 }
