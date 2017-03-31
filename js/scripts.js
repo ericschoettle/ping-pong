@@ -1,9 +1,6 @@
 // Back enter
 function pingPong(number) {
-  var number = parseInt(number);
-  if (!Number.isInteger(number)) {
-    alert("sorry, you've got to enter an integer")
-  } else if (number % 15 === 0) {
+   if (number % 15 === 0) {
     return "Ping-Pong"
   } else if (number % 3 === 0) {
     return "Ping"
@@ -14,28 +11,65 @@ function pingPong(number) {
   }
 }
 
+function remove(string, array) {
+  var index = array.indexOf(string)
+  if (index > -1) {
+    array.splice(index, 1);
+  }
+  return array
+}
+
+var testArray = ["1", "2", 3, "four", "2"]
+var testString = 3
+
+console.log(remove(testString, testArray))
+
+
 // Front end
 $(document).ready(function() {
+  var numbersArray = []
+  var pingPongArray = []
   $("#add-button1, add-button2").click(function(event) {
     event.preventDefault();
-    var input = $("input#number1").val();
+    $("#response").empty();
 
-    var output = pingPong(input)
-    $("#response").show()
-    $("input#number1").val('');
-    if (output) {
-      $("#response").append("<p>" + output + "</p>");
+    var input = parseInt($("input#number1").val());
+
+    if (!Number.isInteger(input)) {
+      alert("sorry, you've got to enter an integer")
+    } else {
+      numbersArray.push(input);
+      $("#response-jumbotron").show();
     }
+
+    for (var i = 0; i < numbersArray.length; i++) {
+      var pingPongValue = pingPong(numbersArray[i])
+      pingPongArray.push(pingPongValue)
+      $("#response").append("<p>" + pingPongValue + "</p>");
+    }
+    
+    $("input#number1").val('');
   });
+
   $("#remove-button1, remove-button2").click(function(event) {
     event.preventDefault();
-    debugger
+    $("#response").empty();
     $("#add-div").hide()
     $("#remove-div").show()
+
+    if (pingPongArray) {
+      var input = parseInt($("input#number2").val());
+      var trimmedArray = remove(input, pingPongArray);
+      if (trimmedArray.length === pingPongArray) {
+        alert("Nice try! " + input + "hadn't been entered.")
+      } else {
+        pingPongArray = trimmedArray;
+      }
+    } else {
+      alert("You can't remove something from nothing!!")
+    }
     $("input#number2").val('');
-    // if (output) {
-      // $("#response").append("<p>" + output + "</p>");
-    // }
+
   });
   $("#remove-button1").hover(function() {
     $(this).removeClass("btn-default")
