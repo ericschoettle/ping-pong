@@ -11,18 +11,28 @@ function pingPong(number) {
   }
 }
 
-function remove(string, array) {
-  var index = array.indexOf(string)
+function remove(array, string) {
+  var index = array.indexOf(string);
   if (index > -1) {
     array.splice(index, 1);
   }
   return array
 }
 
-var testArray = ["1", "2", 3, "four", "2"]
-var testString = 3
+function removeAll(array, string) {
+  while (array.indexOf(string) > -1) {
+    var index = array.indexOf(string);
+    if (index > -1) {
+      array.splice(index, 1);
+    }
+  }
+  return array
+}
 
-console.log(remove(testString, testArray))
+function removePingPong(string, array){
+  if (isInteger(string)) {
+    var numbersArray = remove(string, array)
+}
 
 
 // Front end
@@ -47,7 +57,7 @@ $(document).ready(function() {
       pingPongArray.push(pingPongValue)
       $("#response").append("<p>" + pingPongValue + "</p>");
     }
-    
+
     $("input#number1").val('');
   });
 
@@ -57,14 +67,9 @@ $(document).ready(function() {
     $("#add-div").hide()
     $("#remove-div").show()
 
-    if (pingPongArray) {
+    if (numbersArray) {
       var input = parseInt($("input#number2").val());
-      var trimmedArray = remove(input, pingPongArray);
-      if (trimmedArray.length === pingPongArray) {
-        alert("Nice try! " + input + "hadn't been entered.")
-      } else {
-        pingPongArray = trimmedArray;
-      }
+      // call pingpong remove, test to see if it removed something
     } else {
       alert("You can't remove something from nothing!!")
     }
