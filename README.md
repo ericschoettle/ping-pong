@@ -29,7 +29,17 @@ _This website is a game using the words ping-pong. If the user inputs a multiple
 * _Form has a drop down button allowing addition or removal_
   * _On "add", behavior is as above_
   * _On "remove", all instances of the word, number, or corresponding word are removed_
-    * _eg 
+    * _eg on "pong"     11                            11
+                        ping                          ping
+                        14                            14
+                        pong            =>            4
+                        4                             ping-pong
+                        pong                          
+                        ping-pong                          
+
+    IDEAS:
+* _button "randomize" will randomize the order of previously entered input_
+* _store values in an array, and recalculate. This would allow sneaky features, like remove 30 removing particular instances of ping pong, not all of them.
 
 ## Setup/Installation Requirements
 
