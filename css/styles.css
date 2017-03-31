@@ -6,6 +6,6 @@ h1 {
   display: none;
 }
 
-.jumbotron > *:not(h1) {
+.jumbotron > * {
   padding: 0 25px 0 25px
 }

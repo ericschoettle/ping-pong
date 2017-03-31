@@ -16,9 +16,14 @@
       <div class="jumbotron">
         <form id="form1" action="index.html" method="post">
           <div class="input-group">
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary">Play!</button>
-            </span>
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expande="false">Play <span class="caret"></span> </button>
+              <ul class="dropdown-menu dropdown-menu-left">
+                <li><a href="#">Add</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Remove</a></li>
+              </ul>
+            </div>
             <input type="text" class="form-control " id="number" placeholder="Enter a number...">
           </div>
 
