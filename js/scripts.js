@@ -3,6 +3,8 @@ function pingPong(number) {
   var number = parseInt(number);
   if (!Number.isInteger(number)) {
     alert("sorry, you've got to enter an integer")
+  } if (number % 3 === 0) {
+    return "Ping"
   } 
 }
 
