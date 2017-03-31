@@ -9,3 +9,7 @@ button {
 #response {
   display: none;
 }
+
+.jumbotron > *:not(h1) {
+  padding-left: 30px
+}

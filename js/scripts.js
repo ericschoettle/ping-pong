@@ -9,7 +9,9 @@ function pingPong(number) {
     return "Ping"
   } else if (number % 5 === 0) {
     return "Pong"
-  } else return 
+  } else {
+    return number
+  }
 }
 
 // Front end
@@ -20,6 +22,8 @@ $(document).ready(function() {
     var input = $("input#number").val();
     var output = pingPong(input)
     $("#response").show()
-    $("#response").append(output + "<br>");
+    if (output) {
+      $("#response").append("<p>" + output + "</p>");
+    }
   });
 });
