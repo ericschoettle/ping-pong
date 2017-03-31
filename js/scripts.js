@@ -16,9 +16,19 @@ function pingPong(number) {
 
 // Front end
 $(document).ready(function() {
-  $("form#form1").submit(function(event) {
+  $("#add").click(function(event) {
     event.preventDefault();
-
+    debugger
+    var input = $("input#number").val();
+    var output = pingPong(input)
+    $("#response").show()
+    if (output) {
+      $("#response").append("<p>" + output + "</p>");
+    }
+  });
+  $("#remove").click(function(event) {
+    event.preventDefault();
+    debugger
     var input = $("input#number").val();
     var output = pingPong(input)
     $("#response").show()
