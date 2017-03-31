@@ -1,6 +1,9 @@
 // Back enter
-function functionName() {
-
+function pingPong(number) {
+  var number = parseInt(number);
+  if (!Number.isInteger(number)) {
+    alert("sorry, you've got to enter an integer")
+  } 
 }
 
 // Front end
@@ -9,8 +12,8 @@ $(document).ready(function() {
     event.preventDefault();
 
     var input = $("input#number").val();
-
+    var output = pingPong(input)
     $("#response").show()
-    $("#response").append(input + "<br>");
+    $("#response").append(output + "<br>");
   });
 });
