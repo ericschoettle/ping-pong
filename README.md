@@ -40,15 +40,15 @@ _This website is a game using the words ping-pong. If the user inputs a multiple
                         4                             ping-pong
                         pong                          
                         ping-pong                          
-  * _When a number that is a multiple of three, five, or fifteen is removed, all text origionally resulting from that number is also removed.
-  
+  * _When a number that is a multiple of three, five, or fifteen is removed, all text origionally resulting from that number is also removed._
+
 ## Setup/Installation Requirements
 
 _{Simply double click on index.html to open the page in a web browser. Application is compatible with all modern web browsers}_
 
 ## Known Bugs
 
-_{When remove is highlighted but not by hover, removing the word }_
+_{Remove functionality is broken}_
 
 ## Support and contact details
 
