@@ -40,18 +40,15 @@ _This website is a game using the words ping-pong. If the user inputs a multiple
                         4                             ping-pong
                         pong                          
                         ping-pong                          
-
-    IDEAS:
-* _button "randomize" will randomize the order of previously entered input_
-* _store values in an array, and recalculate. This would allow sneaky features, like remove 30 removing particular instances of ping pong, not all of them.
-
+  * _When a number that is a multiple of three, five, or fifteen is removed, all text origionally resulting from that number is also removed.
+  
 ## Setup/Installation Requirements
 
 _{Simply double click on index.html to open the page in a web browser. Application is compatible with all modern web browsers}_
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+_{When remove is highlighted but not by hover, removing the word }_
 
 ## Support and contact details
 
