@@ -40,26 +40,27 @@ _This website is a game using the words ping-pong. If the user inputs a multiple
                         4                             ping-pong
                         pong                          
                         ping-pong                          
-  * _When a number that is a multiple of three, five, or fifteen is removed, all text origionally resulting from that number is also removed._
+  * _When a number that is a multiple of three, five, or fifteen is removed, all text originally resulting from that number is also removed._
 
 ## Setup/Installation Requirements
 
-_{Simply double click on index.html to open the page in a web browser. Application is compatible with all modern web browsers}_
+_Simply double click on index.html to open the page in a web browser. Application is compatible with all modern web browsers_
 
 ## Known Bugs
 
-_{Remove functionality is broken}_
+_When Remove is highlighted as the default choice, hitting enter still adds the item rather than removes it_
+_Program is case-sensitive and not tested for all edge cases_
 
 ## Support and contact details
 
-_{If you have any ideas for how to make this more interesting, please contact me at an email address I'm unwilling to share freely on the internet. Thanks!!}_
+_If you have any ideas for how to make this more interesting, please contact me at an email address I'm unwilling to share freely on the internet. Thanks!!_
 
 ## Technologies Used
 
-_{This app uses javascript and jQuery}_
+_This app uses javascript and jQuery_
 
 ### License
 
-*{This product may be used under the MIT license}*
+*This product may be used under the MIT license*
 
 Copyright (c) 2016 **_{Eric Schoettle}_**

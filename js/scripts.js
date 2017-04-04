@@ -1,4 +1,5 @@
 // Back enter
+// Returns "ping", "pong", and "ping-pong" depending on inputted number
 function pingPong(number) {
    if (number % 15 === 0) {
     return "Ping-Pong"
@@ -11,29 +12,30 @@ function pingPong(number) {
   }
 }
 
-function remove(array, string) {
-  var index = array.indexOf(string);
-  if (index > -1) {
-    array.splice(index, 1);
-  }
-  return array
-}
-var array = [1,2,3,4]
-var string = 5
-console.log(array.indexOf(string))
+// function remove(array, string) {
+//   var index = array.indexOf(string);
+//   if (index > -1) {
+//     array.splice(index, 1);
+//   }
+//   return array;
+// }
+
+// removes all instances of a string from an array
 function removeAll(array, string) {
-  var test = array.indexOf(string);
-  while (test > -1) {
+
+  for (var i = array.length-1; i >= 0; i--) {
     var index = array.indexOf(string);
     if (index > -1) {
       array.splice(index, 1);
     }
   }
-  return array
+  return array;
 }
 
+// removes all multiples of a number from an array, with special tratment for 15
 function findAndRemoveMultiples(array, multiple) {
   var toBeRemoved = []
+
   if (multiple === 15) {
     for (var i = 0; i < array.length; i++) {
       if (array[i] % multiple === 0) {
@@ -47,39 +49,44 @@ function findAndRemoveMultiples(array, multiple) {
       }
     }
   }
-  while (toBeRemoved) {
-    array = removeAll(array, toBeRemoved.shift());
+  for (var i = 0; i < toBeRemoved.length; i++) {
+    var array = removeAll(array, toBeRemoved[i]);
   }
+  return array
 }
 
+// removes integers from an array or all multiples of 3, 5, or 15 if integer, Ping, Pong, or Ping Pong are entered, respectively
 function removePingPong(array, string){
   if (Number.isInteger(string)) {
-    console.log(array)
-    var numbersArray = removeAll(string, array);
-    console.log(numbersArray)
+    var strippedArray = removeAll(array, string);
   } else if (string === "Ping") {
-    var numbersArray = findAndRemoveMultiples(array, 3);
+    var strippedArray = findAndRemoveMultiples(array, 3);
   } else if (string === "Pong") {
-    var numbersArray = findAndRemoveMultiples(array, 3);
+    var strippedArray = findAndRemoveMultiples(array, 5);
   } else if (string === "Ping-Pong") {
-    var numbersArray = findAndRemoveMultiples(array, 15);
-  }
+    var strippedArray = findAndRemoveMultiples(array, 15);
+  } else {}
+  return strippedArray
 }
-console.log(removePingPong([1,2,3,4], 2))
+
 // Front end
 $(document).ready(function() {
-  var numbersArray = []
+  numbersArray = []
 
-  $("#add-button1, add-button2").click(function(event) {
+  // Performs functions when the string is added to
+  $("#add-button1, #add-button2").click(function(event) {
     event.preventDefault();
+
     $("#response").empty();
+
+    // gather inputs
     if ($("input#number1").val()) {
       var input = parseInt($("input#number1").val());
-    } else {
+    } else if ($("input#number2").val()) {
       var input = parseInt($("input#number2").val());
     }
 
-
+    // Tests if input is integer - if so, stores in numbers array and unhides response section
     if (!Number.isInteger(input)) {
       alert("sorry, you've got to enter an integer");
     } else {
@@ -87,41 +94,60 @@ $(document).ready(function() {
       $("#response-jumbotron").show();
     }
 
+    // Runs pingPong on numbers array, showing results to user
     for (var i = 0; i < numbersArray.length; i++) {
       $("#response").append("<p>" + pingPong(numbersArray[i]) + "</p>");
     }
 
+    // Clears input fields
     $("input#number1").val('');
+    $("input#number2").val('');
   });
 
-  $("#remove-button1, remove-button2").click(function(event) {
+  // Performs functions when numbers are removed from string
+  $("#remove-button1, #remove-button2").click(function(event) {
     event.preventDefault();
+    // Prepares screen
     $("#response").empty();
     $("#add-div").hide();
     $("#remove-div").show();
 
-    if (numbersArray) {
-      if ($("input#number1").val()) {
-        var input = parseInt($("input#number1").val());
-      } else {
-        var input = parseInt($("input#number2").val());
-      }
-      trimmedArray = removePingPong(numbersArray, input);
+    if (numbersArray) { // tests if there is an array from which to remove numbers
 
-      if (trimmedArray.length === numbersArray.length) {
+      // Gathers inputted values
+      if ($("input#number1").val()) {
+        var input = $("input#number1").val();
+      } else if ($("input#number2").val()) {
+        var input = $("input#number2").val();
+      } else {}
+
+      // Converts inputted string to integer, but leaves exception for Ping Pong, etc.
+      if (parseInt(input)) {
+        var input = parseInt(input);
+      } else {}
+
+      // Removes values, and tests to see if values were successsfully removed
+      var lengthBeforeRemovePingPong = numbersArray.length;
+      numbersArray = removePingPong(numbersArray, input);
+      if (lengthBeforeRemovePingPong === numbersArray.length) {
         alert("Try again! I don't see that below!")
-      } else {
-        numbersArray = trimmedArray
       }
+
+      // Converts numbers array to Ping Pong and displays
       for (var i = 0; i < numbersArray.length; i++) {
         $("#response").append("<p>" + pingPong(numbersArray[i]) + "</p>");
       }
-    } else {
+
+    } else { // Closes "if (numbersArray)..."
       alert("You can't remove something from nothing!!")
     }
-    $("input#number2").val('');
 
+    // Clears nubers from inputs
+    $("input#number1").val('');
+    $("input#number2").val('');
   });
+
+  // Changes button hovered over to blue and other button to white, and back when hover ends. Handles case where remove is the default.
   $("#remove-button1").hover(function() {
     $(this).removeClass("btn-default");
     $(this).addClass("btn-primary");
@@ -136,6 +162,8 @@ $(document).ready(function() {
     $("input#number1").attr("placeholder","Enter a number...");
     }
   );
+
+  // Changes button hovered over to blue and other button to white, and back when hover ends. Handles case where remove is the default.
   $("#add-button2").hover(function() {
     $(this).removeClass("btn-default");
     $(this).addClass("btn-primary");
