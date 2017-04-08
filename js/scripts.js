@@ -22,7 +22,6 @@ function pingPong(number) {
 
 // removes all instances of a string from an array
 function removeAll(array, string) {
-
   for (var i = array.length-1; i >= 0; i--) {
     var index = array.indexOf(string);
     if (index > -1) {
@@ -90,7 +89,9 @@ $(document).ready(function() {
     if (!Number.isInteger(input)) {
       alert("sorry, you've got to enter an integer");
     } else {
-      numbersArray.push(input);
+      for (var i = 1; i <= input; i++) {
+        numbersArray.push(i)
+      }
       $("#response-jumbotron").show();
     }
 
